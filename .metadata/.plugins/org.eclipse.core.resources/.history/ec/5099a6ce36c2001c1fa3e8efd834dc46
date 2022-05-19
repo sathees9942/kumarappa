@@ -1,0 +1,19 @@
+package bike;
+
+public class Dio {
+	
+	
+		public void fourWheel()
+		{
+			System.out.println("good bus");
+		}
+		
+		public void main (String[] args)
+		{
+			Dio b = new Dio();
+			b.fourWheel();
+		}
+	}
+
+
+}

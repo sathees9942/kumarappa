@@ -1,0 +1,40 @@
+package org.website;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class XlsFlipkart {
+	
+
+		public static void main(String[] args) throws InterruptedException  {
+			
+			System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+			
+			WebDriver driver = new ChromeDriver();
+			driver.get("https://www.flipkart.com/");
+			
+			driver.manage().window().maximize();
+			
+			WebElement close = driver.findElement(By.xpath("//button[contains(@class,'_2KpZ6l _2doB4z')]"));
+			close.click();
+			
+			WebElement searchmod = driver.findElement(By.xpath("//input[contains(@title,'Search for products, brands and more')]"));
+			searchmod.click();
+			searchmod.sendKeys("iphone");
+			
+			WebElement submit = driver.findElement(By.xpath("//button[contains(@type ,'submit')]"));
+			submit.click();
+			
+			Thread.sleep(2000);
+			
+			
+		}
+	}
+}		
+
+
+

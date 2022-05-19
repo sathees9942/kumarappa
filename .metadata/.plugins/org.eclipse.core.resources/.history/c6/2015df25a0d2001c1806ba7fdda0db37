@@ -1,0 +1,49 @@
+package org.website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class NewDrop {
+public static void main(String[] args) throws InterruptedException  {
+		
+		System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm");
+		
+		driver.manage().window().maximize();
+		WebElement fname = driver.findElement(By.name("firstname"));
+		fname.sendKeys("sathees");
+		WebElement lname = driver.findElement(By.name("lastname"));
+		lname.sendKeys("sathees");
+		
+		Thread.sleep(2000);
+		WebElement radio = driver.findElement(By.xpath("//input[@value='Male']"));
+		radio.click();
+		WebElement radio1 = driver.findElement(By.xpath("//input[@value='4']"));
+		radio1.click();
+		WebElement tester = driver.findElement(By.name("profession"));
+		tester.click();
+		
+	
+		WebElement date = driver.findElement(By.xpath("(//input[@type='text'])[4]"));
+		date.sendKeys("09/07/2022");
+		
+		WebElement tool = driver.findElement(By.xpath("//input[@value='Selenium Webdriver']"));
+		tool.click();
+		
+       WebElement conti = driver.findElement(By.name("continents"));
+		
+		Select s1 = new Select(conti);
+		s1.selectByIndex(0);
+		boolean multi = s1.isMultiple();
+		System.out.println(multi);
+		
+		
+		
+
+}
+}

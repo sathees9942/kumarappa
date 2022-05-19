@@ -1,0 +1,68 @@
+package org.website;
+	
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.seleniumhq.jetty9.security.authentication.LoginAuthenticator;
+
+	public class FlipKart {
+
+		public static void main(String[] args) throws InterruptedException  {
+			
+			System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+			
+			WebDriver driver = new ChromeDriver();
+			driver.get("https://www.flipkart.com/");
+			
+			driver.manage().window().maximize();
+			
+			WebElement close = driver.findElement(By.xpath("//button[contains(@class,'_2KpZ6l _2doB4z')]"));
+			close.click();
+			
+			WebElement searchmod = driver.findElement(By.xpath("//input[contains(@title,'Search for products, brands and more')]"));
+			searchmod.click();
+			searchmod.sendKeys("iphone");
+			
+			WebElement submit = driver.findElement(By.xpath("//button[contains(@type ,'submit')]"));
+			submit.click();
+			
+			Thread.sleep(2000);
+			
+			String parenturl = driver.getWindowHandle();
+			Set<String> childurl = driver.getWindowHandles();
+			
+			for (String x: childurl) {
+				if(!parenturl.equals(x))
+				{
+					driver.switchTo().window(x);
+				}
+				
+			}
+			
+			WebElement m = driver.findElement(By.xpath("//div[contains(text(),'APPLE iPhone 11 (Black, 128 GB)')]"));
+			m.click();
+			
+			WebElement cart = driver.findElement(By.xpath("(//button[contains(text(),'ADD TO CART')]"));
+			
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0]scrollIntoView(true)", cart);
+			
+			Thread.sleep(2000);
+			
+			cart.click();
+			
+		//	WebElement price = driver.findElement(By.xpath("(//div[text()='₹48,000'][1])"));
+		//	String text1 = price.getText();
+		//	System.out.println(text1);
+			
+		//	String price = m.getText();
+		//	System.out.println(price);
+			
+		//	WebElement mob = driver.findElement(By.xpath("//div[contains(@class,'_4rR01T')]"));
+		//	mob.click();
+				
+		}
+}

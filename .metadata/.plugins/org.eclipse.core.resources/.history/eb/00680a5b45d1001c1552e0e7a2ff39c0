@@ -1,0 +1,51 @@
+package org.website;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebTable {
+   
+public static void main(String[] args) throws InterruptedException  {
+		
+		System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demo.guru99.com/test/web-table-element.php");
+		driver.manage().window().maximize();
+		
+	WebElement body = driver.findElement(By.tagName("tbody"));
+	List<WebElement> row = body.findElements(By.tagName("tr"));
+	
+	for(int i=0;i<row.size();i++)
+	{
+		WebElement containrow = row.get(i);
+		
+		List<WebElement> datas = containrow.findElements(By.tagName("td"));
+		
+	//	for (int j = 0; j < datas.size(); j++) {
+			
+			WebElement alldata = datas.get(0);
+			String companyname = alldata.getText();
+			System.out.println(companyname);
+			
+			
+			if(companyname.equals("IDFC L"))
+			{
+				WebElement price = datas.get(3);
+				String val = price.getText();
+				System.out.println(companyname+"  :  "+val);
+			}
+			
+			else
+			{
+				System.out.println("company not avaliable");
+			}
+	//	}}
+	
+}
+}

@@ -1,0 +1,10 @@
+package org.firstfloor;
+
+public class ByteHandling {
+
+	public static void main(String args[])
+	{
+		long  b = 1234567867876876l;
+		System.out.println(b);
+	}
+}

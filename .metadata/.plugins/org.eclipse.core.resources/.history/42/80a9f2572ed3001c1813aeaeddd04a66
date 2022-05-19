@@ -1,0 +1,14 @@
+package org.website;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Excel {
+	
+	public static void main(String[] args) throws IOException {
+		File f = new File(".//exel//demo.xls");
+		
+		f.createNewFile();
+	}
+
+}

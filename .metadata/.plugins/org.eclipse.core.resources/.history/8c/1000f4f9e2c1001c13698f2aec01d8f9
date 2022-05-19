@@ -1,0 +1,10 @@
+package org.firstfloor;
+
+public class ByteHandling {
+
+	public static void main(String args[])
+	{
+		float  b = 12345678;
+		System.out.println(b);
+	}
+}

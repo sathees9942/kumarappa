@@ -1,0 +1,36 @@
+package org.website;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class NewDrop {
+public static void main(String[] args) throws InterruptedException  {
+		
+		System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm");
+		
+		driver.manage().window().maximize();
+		WebElement fname = driver.findElement(By.name("firstname"));
+		fname.sendKeys("sathees");
+		WebElement lname = driver.findElement(By.name("lastname"));
+		lname.sendKeys("palani");
+		
+		Thread.sleep(2000);
+		WebElement radiob = driver.findElement(By.xpath("(//input[@type='radio'])[1]"));
+		boolean selected = radiob.isSelected();
+		System.out.println(selected);
+		radiob.click();
+		WebElement radio1 = driver.findElement(By.xpath("//input[@value='4']"));
+		radio1.click();
+	
+		
+		
+		
+
+}
+}

@@ -1,0 +1,37 @@
+package org.website;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+
+public class NewDrop {
+public static void main(String[] args) throws InterruptedException  {
+		
+		System.setProperty("webdriver.chrome",".\\driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm");
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	//	WebElement fname = driver.findElement(By.name("firstname"));
+	//	fname.sendKeys("sathees");
+	//	WebElement lname = driver.findElement(By.name("lastname"));
+	//	lname.sendKeys("palani");
+		
+	
+		WebElement radiob = driver.findElement(By.xpath("(//input[@name='sex'])[1]"));	
+		radiob.click();
+	//	WebElement radio1 = driver.findElement(By.xpath("//input[@value='4']"));
+	//	radio1.click();
+		
+		
+		
+
+}
+}

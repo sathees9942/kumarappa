@@ -1,0 +1,44 @@
+package icici;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.*;
+
+public class BojoExample {
+	
+	public static void main(String[] args) {
+		
+		BojoMethod b = new BojoMethod();
+		
+		b.setid(12);
+		b.setName("sathees");
+		b.setSal(50);
+		b.setAddress("chennai");
+		
+		
+		
+BojoMethod c = new BojoMethod();
+		
+		c.setid(13);
+		c.setName("mugesh");
+		c.setSal(50);
+		c.setAddress("covai");
+		
+		Set<BojoMethod> s = new HashSet<BojoMethod>();
+		s.add(b);
+		s.add(c);
+		
+	for (BojoMethod k : s) {
+		
+		System.out.println(k.getid());
+		System.out.println(k.getName());
+		System.out.println(k.getSal());
+		System.out.println(k.getAddress());
+		
+	}
+		
+		
+	}
+}
+
+

@@ -1,0 +1,26 @@
+package bike;
+
+public class Dio {
+	
+	
+	protected  void fourWheel()
+		{
+			System.out.println("good bus");
+		}
+		
+		protected void oneWheel()
+		{
+			System.out.println("good cycle");
+		}
+		
+		
+		public  static void main (String[] args)
+		{
+			Dio b = new Dio();
+			b.fourWheel();
+			b.oneWheel();
+		}
+	}
+
+
+
